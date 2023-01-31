@@ -25,9 +25,10 @@ BEGIN
 
     CLOSE column_cursor
     DEALLOCATE column_cursor
-
+	
+    -- Remove trailing comma from end of UPDATE statement.
     SET @SQL = LEFT(@SQL, LEN(@SQL) - 1)
 
-	PRINT @SQL
+    PRINT @SQL
     EXEC sp_executesql @SQL
 END
